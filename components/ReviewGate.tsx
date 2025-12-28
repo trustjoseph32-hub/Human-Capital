@@ -50,54 +50,54 @@ const ReviewGate: React.FC = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center bg-[#0a0c10] p-8 rounded-[2rem] border border-white/5 shadow-2xl">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900">Редакторский Гейт №1: Факты и Тон</h2>
-          <p className="text-slate-500">Рецензирование Черновика Главы 01 (v2.4)</p>
+          <h2 className="text-2xl font-black text-white uppercase tracking-tighter">Редакционный Гейт: Факты и Тон</h2>
+          <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-1">Рецензирование Черновика Главы 01 (v2.4)</p>
         </div>
         <div className="flex gap-3">
           <button 
             onClick={handleAIReview}
             disabled={analyzing}
-            className="flex items-center gap-2 bg-indigo-50 text-indigo-600 px-4 py-2 rounded-xl text-sm font-bold hover:bg-indigo-100 transition-all border border-indigo-200 disabled:opacity-50"
+            className="flex items-center gap-2 bg-amber-500/10 text-amber-500 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-amber-500/20 transition-all border border-amber-500/20 disabled:opacity-50"
           >
             {analyzing ? <Zap className="animate-spin w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
-            {analyzing ? "ИИ анализирует..." : "Запустить ИИ-аудитора"}
+            {analyzing ? "АНАЛИЗ..." : "ЗАПУСТИТЬ АУДИТ"}
           </button>
-          <button className="flex items-center gap-2 bg-emerald-600 text-white px-6 py-2 rounded-xl text-sm font-bold hover:bg-emerald-700 shadow-lg shadow-emerald-500/20 transition-all">
-            <CheckCircle size={18} />
-            Одобрить финал
+          <button className="flex items-center gap-2 bg-amber-500 text-black px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-amber-400 shadow-lg shadow-amber-500/20 transition-all">
+            <CheckCircle size={16} />
+            ОДОБРИТЬ ФИНАЛ
           </button>
         </div>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         <div className="xl:col-span-2 space-y-6">
-          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col h-[600px]">
-            <div className="bg-slate-50 border-b border-slate-200 px-6 py-3 flex justify-between items-center">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Рабочая область черновика</span>
+          <div className="bg-[#0a0c10] rounded-[2rem] border border-white/5 overflow-hidden shadow-sm flex flex-col h-[600px]">
+            <div className="bg-white/5 border-b border-white/5 px-6 py-4 flex justify-between items-center">
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Рабочая область черновика</span>
               <div className="flex gap-4">
-                <span className="text-xs text-slate-400">Слов: 4,502</span>
-                <span className="text-xs text-slate-400">Стиль: Академический</span>
+                <span className="text-[10px] text-slate-600 font-bold uppercase">Слов: 4,502</span>
+                <span className="text-[10px] text-slate-600 font-bold uppercase">Стиль: Академический</span>
               </div>
             </div>
-            <div className="flex-1 p-8 overflow-y-auto leading-relaxed text-slate-700 font-serif text-lg selection:bg-indigo-100">
+            <div className="flex-1 p-10 overflow-y-auto leading-relaxed text-slate-300 font-serif text-lg selection:bg-amber-500/30">
               {mockDraft.split('\n').map((para, i) => para.trim() && (
                 <p key={i} className="mb-6">{para.trim()}</p>
               ))}
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mt-8">
-                <h4 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <ShieldCheck className="text-emerald-500" size={18} />
-                  Реестр источников (Verified)
+              <div className="bg-white/5 border border-white/5 rounded-2xl p-8 mt-12">
+                <h4 className="text-[10px] font-black text-white mb-6 flex items-center gap-2 uppercase tracking-[0.2em]">
+                  <ShieldCheck className="text-amber-500" size={16} />
+                  Реестр верифицированных источников
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {sources.map((src, i) => (
-                    <li key={i} className="text-xs text-slate-500 flex items-center justify-between group">
-                      <span className="flex items-center gap-2">
-                        <ChevronRight size={12} /> {src}
+                    <li key={i} className="text-[11px] text-slate-500 flex items-center justify-between group hover:text-slate-300 transition-colors">
+                      <span className="flex items-center gap-3">
+                        <ChevronRight size={14} className="text-amber-500" /> {src}
                       </span>
-                      <button className="text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ExternalLink size={12} />
+                      <button className="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ExternalLink size={14} />
                       </button>
                     </li>
                   ))}
@@ -108,55 +108,55 @@ const ReviewGate: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <AlertCircle className="text-amber-500" size={20} />
-              Инсайты аудитора
+          <div className="bg-[#0a0c10] rounded-[2rem] border border-white/5 p-8 shadow-sm">
+            <h3 className="text-xs font-black text-white mb-8 flex items-center gap-2 uppercase tracking-[0.2em]">
+              <AlertCircle className="text-amber-500" size={18} />
+              Инсайты ИИ-аудитора
             </h3>
             
             {!analysisResult && !analyzing && (
               <div className="text-center py-12 px-6">
-                <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-dashed border-slate-200">
-                  <Zap className="text-slate-300" />
+                <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 border border-dashed border-white/10">
+                  <Zap className="text-slate-700" />
                 </div>
-                <p className="text-sm text-slate-500">Запустите проверку, чтобы найти фактологические ошибки и отклонения от тона.</p>
+                <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest leading-relaxed">Запустите проверку, чтобы найти фактологические ошибки и отклонения от тона.</p>
               </div>
             )}
 
             {analyzing && (
               <div className="space-y-4">
                 {[1,2,3].map(i => (
-                  <div key={i} className="h-16 bg-slate-50 rounded-xl animate-pulse" />
+                  <div key={i} className="h-20 bg-white/5 rounded-2xl animate-pulse" />
                 ))}
               </div>
             )}
 
             {analysisResult && (
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-semibold text-slate-600">Соответствие стилю</span>
-                    <span className="text-sm font-bold text-indigo-600">{analysisResult.toneScore}%</span>
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Соответствие стилю</span>
+                    <span className="text-sm font-black text-amber-500 font-mono">{analysisResult.toneScore}%</span>
                   </div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-indigo-500" style={{ width: `${analysisResult.toneScore}%` }} />
+                  <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]" style={{ width: `${analysisResult.toneScore}%` }} />
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-slate-400 uppercase">Обнаруженные правки</span>
+                <div className="space-y-4">
+                  <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Обнаруженные правки</span>
                   {analysisResult.factIssues.map((issue: any, i: number) => (
-                    <div key={i} className={`p-4 rounded-xl border ${issue.severity === 'высокая' ? 'bg-rose-50 border-rose-100' : 'bg-amber-50 border-amber-100'}`}>
-                      <p className="text-xs font-bold text-slate-500 mb-1 text-[10px] uppercase">В тексте:</p>
-                      <p className="text-sm text-slate-700 mb-3 italic">"...{issue.statement}..."</p>
-                      <p className="text-xs font-bold text-emerald-600 mb-1 text-[10px] uppercase">Коррекция:</p>
-                      <p className="text-sm text-slate-900 font-medium">{issue.correction}</p>
+                    <div key={i} className={`p-5 rounded-2xl border ${issue.severity === 'высокая' ? 'bg-rose-500/5 border-rose-500/20' : 'bg-amber-500/5 border-amber-500/20'}`}>
+                      <p className="text-[8px] font-black text-slate-500 mb-2 uppercase tracking-widest">В тексте:</p>
+                      <p className="text-[11px] text-slate-400 mb-4 italic leading-relaxed">"...{issue.statement}..."</p>
+                      <p className="text-[8px] font-black text-amber-500 mb-2 uppercase tracking-widest">Коррекция:</p>
+                      <p className="text-[11px] text-white font-bold leading-relaxed">{issue.correction}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-slate-100">
-                  <p className="text-xs text-slate-500 font-medium leading-relaxed italic">
+                <div className="pt-6 border-t border-white/5">
+                  <p className="text-[11px] text-slate-500 font-bold leading-relaxed italic uppercase tracking-tighter opacity-70">
                     "{analysisResult.summary}"
                   </p>
                 </div>
@@ -164,22 +164,22 @@ const ReviewGate: React.FC = () => {
             )}
           </div>
 
-          <div className="bg-slate-900 rounded-2xl p-6 text-white">
-            <h4 className="font-bold mb-4 flex items-center gap-2">
-              <MessageSquare size={18} className="text-indigo-400" />
-              Чат с редактором
+          <div className="bg-black rounded-[2rem] border border-white/5 p-8 text-white">
+            <h4 className="text-[10px] font-black mb-6 flex items-center gap-2 uppercase tracking-[0.2em]">
+              <MessageSquare size={16} className="text-amber-500" />
+              Связь с Редактором
             </h4>
-            <div className="bg-slate-800 rounded-xl p-3 mb-4 h-32 overflow-y-auto">
-              <div className="text-[10px] text-indigo-300 font-bold mb-1 uppercase tracking-widest">Система:</div>
-              <p className="text-xs text-slate-400">Ожидание ввода правок...</p>
+            <div className="bg-white/5 rounded-2xl p-4 mb-6 h-32 overflow-y-auto">
+              <div className="text-[8px] text-amber-500 font-black mb-2 uppercase tracking-[0.2em]">Система:</div>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Ожидание ввода правок...</p>
             </div>
             <div className="relative">
               <input 
                 type="text" 
-                placeholder="Попросить ИИ переписать или уточнить..." 
-                className="w-full bg-slate-800 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-indigo-500 transition-all pr-12"
+                placeholder="Запрос на переписывание..." 
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-xs focus:ring-1 focus:ring-amber-500 outline-none transition-all pr-12 text-white"
               />
-              <button className="absolute right-2 top-1.5 p-1 bg-indigo-600 rounded-lg">
+              <button className="absolute right-2 top-2 p-1.5 bg-amber-500 rounded-lg text-black hover:bg-amber-400 transition-colors">
                 <ChevronRight size={16} />
               </button>
             </div>
